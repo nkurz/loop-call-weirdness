@@ -1,4 +1,4 @@
-loop-call-weirdness
-===================
+Loop Call Weirdness:
+http://eli.thegreenplace.net/2013/12/03/intel-i7-loop-performance-anomaly/
 
-Loop Call Weirdness --- http://eli.thegreenplace.net/2013/12/03/intel-i7-loop-performance-anomaly/
+Confusing case where adding additional instructions makes a loop faster.
