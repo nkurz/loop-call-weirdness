@@ -10,5 +10,5 @@ loop-call-weirdness: loop-call-weirdness.c
 clean:
 	rm -rf loop-call-weirdness iaca.o
 
-test: 
+test: all
 	run_all.sh
