@@ -19,6 +19,15 @@ void tightloop() {
     }
     IACA_END;
 }
+
+void loop_var(volatile unsigned long long *counter_p) {
+    IACA_START;
+    unsigned j;
+    for (j = 0; j < N; ++j) {
+        *counter_p += j;
+    }
+    IACA_END;
+}
  
 
 void loop_with_extra_call() {
@@ -91,7 +100,7 @@ void loop_dummy_prefetch() {
     IACA_START;
     unsigned j;
     for (j = 0; j < N; ++j) {
-        __builtin_prefetch((void *)&dummy);
+        __builtin_prefetch((void *)&counter);
         counter += j;
     }
     IACA_END;
@@ -145,6 +154,8 @@ int main(int argc, char** argv) {
         loop_dummy_prefetch();
     } else if (argv[1][0] == 'j') {
         loop_jump();
+    } else if (argv[1][0] == 'v') {
+        loop_var(&counter);
     }
  
     return 0;

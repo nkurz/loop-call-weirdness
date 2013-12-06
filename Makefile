@@ -1,7 +1,5 @@
-CC = gcc
-
+CC = gcc -O2
 CCOPT = -O2
-
 
 all: loop-call-weirdness 
 
@@ -12,3 +10,5 @@ loop-call-weirdness: loop-call-weirdness.c
 clean:
 	rm -rf loop-call-weirdness iaca.o
 
+test: 
+	run_all.sh
