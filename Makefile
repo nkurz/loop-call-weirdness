@@ -1,5 +1,5 @@
-CC = gcc -O2
-CCOPT = -O2
+CC = gcc 
+CCOPT = -O2 -fno-inline
 
 all: loop-call-weirdness 
 
