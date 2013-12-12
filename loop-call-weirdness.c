@@ -50,6 +50,16 @@ void loop_exchange() {
     IACA_END;
 }
 
+void loop_exchange_other() {
+    IACA_START;
+    unsigned j;
+    for (j = 0; j < N; ++j) {
+        __asm__("xchg %rcx, %rcx"); // assumes counter is %rdx
+        counter += j;
+    }
+    IACA_END;
+}
+
  
 void foo() {
     // same performance as foo_full
@@ -142,6 +152,8 @@ int main(int argc, char** argv) {
         loop_with_extra_call();
     } else if (argv[1][0] == 'e') {
         loop_exchange();
+    } else if (argv[1][0] == 'o') {
+        loop_exchange_other();
     } else if (argv[1][0] == 'w') {
         loop_write();
     } else if (argv[1][0] == '2') {
