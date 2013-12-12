@@ -2,6 +2,7 @@ CC = gcc
 CCOPT = -O2 -fno-inline
 
 all: loop-call-weirdness 
+	objdump -d $^ > objdump-d.txt
 
 loop-call-weirdness: loop-call-weirdness.c
 	$(CC) $(CCOPT) $^ -o $@
